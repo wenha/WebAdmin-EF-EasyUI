@@ -1,13 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
 
 <html>
 <head>
     <title>Index</title>
     <meta name="viewport" content="width=device-width" />
-    <script src="@Url.Content("~/Scripts/jquery.min.js")" type="text/javascript"></script>
+    @Scripts.Render("~/bundles/jquery")
     <script src="@Url.Content("~/Scripts/jquery.easyui.min.js")" type="text/javascript"></script>
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/themes/blue/css")
+    @Styles.Render("~/Content/themes/material-blue/css")
     @Scripts.Render("~/bundles/home")
 </head>
 <body class="easyui-layout">
