@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B6EA3B8E-F5EE-4925-8BEE-C31A4184215B}</ProjectGuid>
+    <ProjectGuid>{DE3C32B2-F8AF-4C28-88F9-49E3EC35DC35}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>APP.DAL</RootNamespace>
-    <AssemblyName>APP.DAL</AssemblyName>
+    <RootNamespace>App.Entity</RootNamespace>
+    <AssemblyName>App.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -40,6 +40,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,22 +50,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBContainer.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBContainer.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContainer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBContainer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContainer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBContainer.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sys\SampleRepository.cs" />
+    <Compile Include="SysSample.cs">
+      <DependentUpon>DBContainer.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\App.Entity\App.Entity.csproj">
-      <Project>{DE3C32B2-F8AF-4C28-88F9-49E3EC35DC35}</Project>
-      <Name>App.Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\APP.IDAL\APP.IDAL.csproj">
-      <Project>{C0800A18-A6B8-49C4-ABE6-4538736C9412}</Project>
-      <Name>APP.IDAL</Name>
-    </ProjectReference>
+    <EntityDeploy Include="DBContainer.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBContainer.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.Config" />
+    <None Include="DBContainer.edmx.diagram">
+      <DependentUpon>DBContainer.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DBContainer.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DBContainer.Context.cs</LastGenOutput>
+      <DependentUpon>DBContainer.edmx</DependentUpon>
+    </Content>
+    <Content Include="DBContainer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBContainer.edmx</DependentUpon>
+      <LastGenOutput>DBContainer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
