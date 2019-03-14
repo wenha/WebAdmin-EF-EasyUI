@@ -42,6 +42,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sys\SampleBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\APP.DAL\APP.DAL.csproj">
+      <Project>{B6EA3B8E-F5EE-4925-8BEE-C31A4184215B}</Project>
+      <Name>APP.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Entity\App.Entity.csproj">
+      <Project>{DE3C32B2-F8AF-4C28-88F9-49E3EC35DC35}</Project>
+      <Name>App.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\APP.IBLL\APP.IBLL.csproj">
+      <Project>{6639451E-E265-4A01-A743-9B05DD3A9AE1}</Project>
+      <Name>APP.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\APP.IDAL\APP.IDAL.csproj">
+      <Project>{C0800A18-A6B8-49C4-ABE6-4538736C9412}</Project>
+      <Name>APP.IDAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

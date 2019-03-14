@@ -1,4 +1,6 @@
-﻿using System;
+﻿using APP.Core;
+using Microsoft.Practices.Unity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,6 +21,10 @@ namespace App.Web
 
             //启用压缩
             BundleTable.EnableOptimizations = true;
+
+            var container = new UnityContainer();
+            DependencyRegisterType.Container_Sys(ref container);
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
 }
