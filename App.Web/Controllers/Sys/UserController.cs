@@ -8,18 +8,18 @@ using System.Web.Mvc;
 
 namespace App.Web.Controllers.Sys
 {
-    public class SampleController : Controller
+    public class UserController : Controller
     {
         #region 公共对象
 
         [Dependency]
-        public ISampleBLL SampleBLL { get; set; }
+        public IUserBLL UserBLL { get; set; }
 
         #endregion
 
         public ActionResult Index()
         {
-            var list = SampleBLL.GetList("");
+            var list = UserBLL.GetList("");
 
             return View(list);
         }

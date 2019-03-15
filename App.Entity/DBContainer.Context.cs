@@ -25,6 +25,6 @@ namespace App.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<SysSample> SysSample { get; set; }
+        public virtual DbSet<SysUser> SysUser { get; set; }
     }
 }

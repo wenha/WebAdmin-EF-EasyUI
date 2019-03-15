@@ -15,8 +15,8 @@ namespace APP.Core
     {
         public static void Container_Sys(ref UnityContainer container)
         {
-            container.RegisterType<ISampleBLL, SampleBLL>();
-            container.RegisterType<ISampleRepository, SampleRepository>();
+            container.RegisterType<IUserBLL, UserBLL>();
+            container.RegisterType<IUserRepository, UserRepository>();
         }
     }
 }

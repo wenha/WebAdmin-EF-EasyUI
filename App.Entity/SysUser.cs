@@ -12,9 +12,9 @@ namespace App.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class SysSample
+    public partial class SysUser
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public Nullable<int> Age { get; set; }
         public Nullable<System.DateTime> Bir { get; set; }

@@ -7,28 +7,28 @@ using System.Threading.Tasks;
 
 namespace APP.IBLL.Sys
 {
-    public interface ISampleBLL
+    public interface IUserBLL
     {
         /// <summary>
         /// 获取集合
         /// </summary>
         /// <param name="queryStr"></param>
         /// <returns></returns>
-        List<SysSample> GetList(string queryStr);
+        List<SysUser> GetList(string queryStr);
 
         /// <summary>
         /// 创建
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        bool Create( SysSample model);
+        bool Create( SysUser model);
 
         /// <summary>
         /// 根据Id删除
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        bool Delete(string id);
+        bool Delete(int id);
 
         /// <summary>
         /// 批量删除
@@ -42,20 +42,20 @@ namespace APP.IBLL.Sys
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        bool Edit(SysSample model);
+        bool Edit(SysUser model);
 
         /// <summary>
         /// 根据Id获取单条
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        SysSample GetById(string id);
+        SysUser GetById(int id);
 
         /// <summary>
         /// 是否存在
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        bool IsExist(string id);
+        bool IsExist(int id);
     }
 }

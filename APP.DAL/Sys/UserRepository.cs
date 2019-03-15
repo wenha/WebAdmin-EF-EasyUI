@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 
 namespace APP.DAL.Sys
 {
-    public class SampleRepository : ISampleRepository, IDisposable
+    public class UserRepository : IUserRepository, IDisposable
     {
-        public int Create(SysSample entity)
+        public int Create(SysUser entity)
         {
             using (AppsDBEntities db = new AppsDBEntities())
             {
-                db.SysSample.Add(entity);
+                db.SysUser.Add(entity);
                 return db.SaveChanges();
             }
         }
 
-        public int Delete(string id)
+        public int Delete(int id)
         {
             using (AppsDBEntities db = new AppsDBEntities())
             {
-                var entity = db.SysSample.SingleOrDefault(s => s.Id == id);
-                db.SysSample.Remove(entity);
+                var entity = db.SysUser.SingleOrDefault(s => s.Id == id);
+                db.SysUser.Remove(entity);
                 return db.SaveChanges();
             }
         }
@@ -33,30 +33,30 @@ namespace APP.DAL.Sys
         {
         }
 
-        public int Edit(SysSample entity)
+        public int Edit(SysUser entity)
         {
             using (AppsDBEntities db = new AppsDBEntities())
             {
-                db.SysSample.Attach(entity);
-                db.Entry<SysSample>(entity).State = System.Data.Entity.EntityState.Modified;
+                db.SysUser.Attach(entity);
+                db.Entry<SysUser>(entity).State = System.Data.Entity.EntityState.Modified;
                 return db.SaveChanges();
             }
         }
 
-        public SysSample GetById(string id)
+        public SysUser GetById(int id)
         {
             using (AppsDBEntities db = new AppsDBEntities())
             {
-                return db.SysSample.SingleOrDefault(s => s.Id == id);
+                return db.SysUser.SingleOrDefault(s => s.Id == id);
             }
         }
 
-        public IQueryable<SysSample> GetList(AppsDBEntities db)
+        public IQueryable<SysUser> GetList(AppsDBEntities db)
         {
-            return db.SysSample.AsQueryable();
+            return db.SysUser.AsQueryable();
         }
 
-        public bool IsExist(string id)
+        public bool IsExist(int id)
         {
             using (AppsDBEntities db = new AppsDBEntities())
             {
