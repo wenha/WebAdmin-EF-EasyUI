@@ -1,4 +1,6 @@
 ﻿using App.Entity;
+using APP.Common;
+using APP.Model.Sys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +14,16 @@ namespace APP.IBLL.Sys
         /// <summary>
         /// 获取集合
         /// </summary>
-        /// <param name="queryStr"></param>
+        /// <param name="pager"></param>
         /// <returns></returns>
-        List<SysUser> GetList(string queryStr);
+        List<UserModel> GetList(ref GridPager pager);
 
         /// <summary>
         /// 创建
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        bool Create( SysUser model);
+        bool Create(UserModel model);
 
         /// <summary>
         /// 根据Id删除
@@ -42,7 +44,7 @@ namespace APP.IBLL.Sys
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        bool Edit(SysUser model);
+        bool Edit(UserModel model);
 
         /// <summary>
         /// 根据Id获取单条

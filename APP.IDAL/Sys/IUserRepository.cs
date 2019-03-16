@@ -1,4 +1,5 @@
 ﻿using App.Entity;
+using APP.Model.Sys;
 using System.Linq;
 
 namespace APP.IDAL.Sys
@@ -17,7 +18,7 @@ namespace APP.IDAL.Sys
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        int Create(SysUser entity);
+        int Create(UserModel entity);
 
         /// <summary>
         /// 删除
@@ -31,7 +32,7 @@ namespace APP.IDAL.Sys
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        int Edit(SysUser entity);
+        int Edit(UserModel entity);
 
         /// <summary>
         /// 根据id获取用户

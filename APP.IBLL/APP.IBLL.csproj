@@ -45,9 +45,17 @@
     <Compile Include="Sys\IUserBLL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\APP.Common\APP.Common.csproj">
+      <Project>{1F6302AA-6925-42BD-8967-6DAECAB6BC51}</Project>
+      <Name>APP.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Entity\App.Entity.csproj">
       <Project>{DE3C32B2-F8AF-4C28-88F9-49E3EC35DC35}</Project>
       <Name>App.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\APP.Model\APP.Model.csproj">
+      <Project>{92849D7C-D985-4615-909B-8BF9E3F82B58}</Project>
+      <Name>APP.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

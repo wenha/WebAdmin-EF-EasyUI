@@ -1,7 +1,9 @@
 ﻿using App.Entity;
+using APP.Common;
 using APP.DAL.Sys;
 using APP.IBLL.Sys;
 using APP.IDAL.Sys;
+using APP.Model.Sys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +23,7 @@ namespace APP.BLL.Sys
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public bool Create(SysUser model)
+        public bool Create(UserModel model)
         {
             try
             {
@@ -79,7 +81,7 @@ namespace APP.BLL.Sys
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public bool Edit(SysUser model)
+        public bool Edit(UserModel model)
         {
             try
             {
@@ -119,11 +121,75 @@ namespace APP.BLL.Sys
         /// <summary>
         /// 获取集合
         /// </summary>
-        /// <param name="queryStr"></param>
+        /// <param name="pager"></param>
         /// <returns></returns>
-        public List<SysUser> GetList(string queryStr)
+        public List<UserModel> GetList(ref GridPager pager)
         {
-            return UserRepository.GetList(db).ToList();
+            var queryData = UserRepository.GetList(db);
+
+            //排序
+            if(pager.order == "desc")
+            {
+                switch (pager.order)
+                {
+                    case "CreateTime":
+                        queryData = queryData.OrderByDescending(c => c.CreateTime);
+                        break;
+                    case "Name":
+                        queryData = queryData.OrderByDescending(c => c.Name);
+                        break;
+                    default:
+                        queryData = queryData.OrderByDescending(c => c.CreateTime);
+                        break;
+                }
+            }
+            else
+            {
+                switch (pager.order)
+                {
+                    case "CreateTime":
+                        queryData = queryData.OrderBy(c => c.CreateTime);
+                        break;
+                    case "Name":
+                        queryData = queryData.OrderBy(c => c.Name);
+                        break;
+                    default:
+                        queryData = queryData.OrderBy(c => c.CreateTime);
+                        break;
+                }
+            }
+
+            return CreateModelList(ref pager, ref queryData);
+        }
+
+        private List<UserModel> CreateModelList(ref GridPager pager, ref IQueryable<SysUser> queryData)
+        {
+            pager.totalRows = queryData.Count();
+
+            if(pager.totalRows > 0)
+            {
+                if(pager.page <= 1)
+                {
+                    queryData = queryData.Take(pager.rows);
+                }
+                else
+                {
+                    queryData = queryData.Skip((pager.page - 1) * pager.rows).Take(pager.rows);
+                }
+            }
+
+            var modelList = (from r in queryData
+                             select new UserModel
+                             {
+                                 Id = r.Id,
+                                 Name = r.Name,
+                                 Age = r.Age,
+                                 Bir = r.Bir,
+                                 Photo = r.Photo,
+                                 Note = r.Note,
+                                 CreateTime = r.CreateTime
+                             }).ToList();
+            return modelList;
         }
 
         /// <summary>

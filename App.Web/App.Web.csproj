@@ -676,6 +676,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.easyui.min.js" />
+    <Content Include="Scripts\jquery.easyui.plus.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -695,6 +696,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Shared\_Index_Layout.cshtml" />
+    <Content Include="Views\Shared\_Index_Layout_Edit.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -714,6 +718,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\APP.Common\APP.Common.csproj">
+      <Project>{1F6302AA-6925-42BD-8967-6DAECAB6BC51}</Project>
+      <Name>APP.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\APP.Core\APP.Core.csproj">
       <Project>{FAB2431E-4975-4703-AAA5-ECBA9495081C}</Project>
       <Name>APP.Core</Name>
@@ -725,6 +733,10 @@
     <ProjectReference Include="..\APP.IBLL\APP.IBLL.csproj">
       <Project>{6639451E-E265-4A01-A743-9B05DD3A9AE1}</Project>
       <Name>APP.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\APP.Model\APP.Model.csproj">
+      <Project>{92849D7C-D985-4615-909B-8BF9E3F82B58}</Project>
+      <Name>APP.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

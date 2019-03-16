@@ -45,6 +45,10 @@
     <Compile Include="Sys\UserBLL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\APP.Common\APP.Common.csproj">
+      <Project>{1F6302AA-6925-42BD-8967-6DAECAB6BC51}</Project>
+      <Name>APP.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\APP.DAL\APP.DAL.csproj">
       <Project>{B6EA3B8E-F5EE-4925-8BEE-C31A4184215B}</Project>
       <Name>APP.DAL</Name>
@@ -60,6 +64,10 @@
     <ProjectReference Include="..\APP.IDAL\APP.IDAL.csproj">
       <Project>{C0800A18-A6B8-49C4-ABE6-4538736C9412}</Project>
       <Name>APP.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\APP.Model\APP.Model.csproj">
+      <Project>{92849D7C-D985-4615-909B-8BF9E3F82B58}</Project>
+      <Name>APP.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

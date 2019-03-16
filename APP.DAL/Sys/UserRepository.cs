@@ -1,5 +1,6 @@
 ﻿using App.Entity;
 using APP.IDAL.Sys;
+using APP.Model.Sys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,18 @@ namespace APP.DAL.Sys
 {
     public class UserRepository : IUserRepository, IDisposable
     {
-        public int Create(SysUser entity)
+        public int Create(UserModel entity)
         {
             using (AppsDBEntities db = new AppsDBEntities())
             {
-                db.SysUser.Add(entity);
+                var user = new SysUser();
+                user.Name = entity.Name;
+                user.Bir = entity.Bir;
+                user.Age = entity.Age;
+                user.Note = entity.Note;
+                user.Photo = entity.Photo;
+                user.CreateTime = DateTime.Now;
+                db.SysUser.Add(user);
                 return db.SaveChanges();
             }
         }
@@ -33,12 +41,18 @@ namespace APP.DAL.Sys
         {
         }
 
-        public int Edit(SysUser entity)
+        public int Edit(UserModel entity)
         {
             using (AppsDBEntities db = new AppsDBEntities())
             {
-                db.SysUser.Attach(entity);
-                db.Entry<SysUser>(entity).State = System.Data.Entity.EntityState.Modified;
+                var user = db.SysUser.FirstOrDefault(u => u.Id == entity.Id);
+                user.Name = entity.Name;
+                user.Bir = entity.Bir;
+                user.Age = entity.Age;
+                user.Photo = entity.Photo;
+                user.Note = entity.Note;
+                db.SysUser.Attach(user);
+                db.Entry<SysUser>(user).State = System.Data.Entity.EntityState.Modified;
                 return db.SaveChanges();
             }
         }
@@ -61,7 +75,7 @@ namespace APP.DAL.Sys
             using (AppsDBEntities db = new AppsDBEntities())
             {
                 var entity = GetById(id);
-                if(entity == null)
+                if (entity == null)
                 {
                     return false;
                 }
