@@ -27,5 +27,6 @@ namespace App.Entity
     
         public virtual DbSet<SysUser> SysUser { get; set; }
         public virtual DbSet<SysModule> SysModule { get; set; }
+        public virtual DbSet<SysLog> SysLog { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace App.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         [Dependency]
         public  IHomeBLL HomeBLL { get; set; }

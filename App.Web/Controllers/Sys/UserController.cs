@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace App.Web.Controllers.Sys
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         #region 公共对象
 
