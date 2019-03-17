@@ -64,8 +64,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtendMvcHtml.cs" />
     <Compile Include="GridPager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Suggestion.cs" />
     <Compile Include="ToJsonResult.cs" />
   </ItemGroup>
   <ItemGroup>
