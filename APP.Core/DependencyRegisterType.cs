@@ -17,6 +17,9 @@ namespace APP.Core
         {
             container.RegisterType<IUserBLL, UserBLL>();
             container.RegisterType<IUserRepository, UserRepository>();
+
+            container.RegisterType<IHomeBLL, HomeBLL>();
+            container.RegisterType<IHomeRepository, HomeRepository>();
         }
     }
 }

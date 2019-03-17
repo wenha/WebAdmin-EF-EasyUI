@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="505e5522487d422a9c08c7888a63a91d" Name="Diagram1">
         <EntityTypeShape EntityType="DBContainer.SysUser" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DBContainer.SysModule" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="DBContainer.FK_SysModule_SysModule" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

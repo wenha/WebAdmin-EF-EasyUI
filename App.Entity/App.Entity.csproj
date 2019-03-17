@@ -66,6 +66,9 @@
       <DependentUpon>DBContainer.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SysModule.cs">
+      <DependentUpon>DBContainer.tt</DependentUpon>
+    </Compile>
     <Compile Include="SysUser.cs">
       <DependentUpon>DBContainer.tt</DependentUpon>
     </Compile>
